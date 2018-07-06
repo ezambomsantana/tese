@@ -28,7 +28,7 @@ colnames(walk_data) <- c("Time", "Distance", "Hour","Mode" )
 
 # Make the plot
 png('scatter_walk.png')
-pairs(~Time+Hour+Distance, data=walk_data,main="Vehicles Travels Variables")
+pairs(~Time+Hour+Distance, data=walk_data,main="Walk Travels Variables")
 dev.off()
 
 
@@ -38,5 +38,15 @@ colnames(bus_data) <- c("Time", "Distance", "Hour","Mode" )
 
 # Make the plot
 png('scatter_bus.png')
-pairs(~Time+Hour, data=bus_data,main="Vehicles Travels Variables")
+pairs(~Time+Hour, data=bus_data,main="Bus Travels Variables")
+dev.off()
+
+
+subway_data <- data[data$V10 == "subway", ]
+subway_data <- data.frame(subway_data$V7, subway_data$V8,  subway_data$V3, subway_data$V10 )
+colnames(subway_data) <- c("Time", "Distance", "Hour","Mode" )
+
+# Make the plot
+png('scatter_subway.png')
+pairs(~Time+Hour, data=subway_data,main="Subway Travels Variables")
 dev.off()
