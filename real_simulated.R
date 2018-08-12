@@ -51,6 +51,9 @@ p3 <- p3 + scale_x_discrete(name = "Travel Time") +
 p3
 dev.off()
 
+mean(total_walk[total_walk$type == "Simulated",]$time)
+mean(total_walk[total_walk$type == "Real",]$time)
+
 total_subway <- total[total$mode == "metro", ]
 png('c:/dev/total_subway.png')
 p4 <- ggplot(total_subway, aes(x = type, y = time)) +
@@ -59,6 +62,10 @@ p4 <- p4 + scale_x_discrete(name = "Travel Time") +
   scale_y_continuous(name = "Real X Simulated (Subway Travels)",limits = quantile(total$time, c(0.1, 0.9)))
 p4
 dev.off()
+
+
+mean(total_subway[total_subway$type == "Simulated",]$time)
+mean(total_subway[total_subway$type == "Real",]$time)
 
 total_bus <- total[total$mode == "bus", ]
 png('c:/dev/total_bus.png')
