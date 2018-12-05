@@ -5,9 +5,9 @@ data <- data.frame("Test" = c(20,40, 60, 80, 100),
                    "SD" = c(4,10,25,0,0), 
                    "Memory" = c(0, 0, 0, 0,0),
                    "CPU" = c(0, 0, 0, 0,0),
-                   "Cost" = c(0.472, 0.528, 0.59, 0.65,0.88),
-                   "Total_Cost" = c(0.944, , 2.64, 4.13,0),
-                   "Output_Size" = c(82, 159, 241, 325,0))
+                   "Cost" = c(0.472, 0.528, 0.59, 0.65,0.68),
+                   "Total_Cost" = c(0.944, 1 , 2.64, 4.13,1),
+                   "Output_Size" = c(82, 159, 241, 325, 392))
 
 
 g1 <- ggplot(data=data, aes(x=Test, y=Execution_Time)) +
