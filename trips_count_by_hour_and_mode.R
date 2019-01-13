@@ -1,7 +1,7 @@
 require("ggplot2")
 require("reshape")
 
-data <- read.csv("/home/eduardo/trips.csv", header=FALSE, sep=';', colClasses= c("integer","integer","character"))
+data <- read.csv("C:/dev/trips/trips.csv", header=FALSE, sep=';', colClasses= c("integer","integer","character"))
 
 data_car <- data[data$V3 == 'car', ]
 data_subway <- data[data$V3 == 'subway', ]
@@ -36,9 +36,11 @@ df <- melt(time, .measure.vars=.(x,bus,walk))
 df$minute <- seq.int(nrow(time))
 
 
-df['value'] <- sapply(df['value'], function(x) as.numeric(x))
+df['value'] <- sapply(df['value'], function(x) as.numeric(x) / 1000)
 
-png('mode.png')
+png('C:/dev/trips/mode.png', width = 800, height = 800)
 ggplot(df, aes(x = minute, y = value, fill = factor(variable))) +
-  geom_bar(stat = "identity")
+  geom_bar(stat = "identity") + labs(x = "Hour", y="Trip Count (x1000)") +
+  guides(fill=guide_legend(title="Travel Mode")) + scale_fill_brewer(palette="Set1")
+  
 dev.off()
