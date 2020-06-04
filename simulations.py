@@ -35,3 +35,19 @@ axes[1, 1].set_ylabel('Cost (USD)', fontsize=13)
 
 plt.show()
 plt.close()
+
+
+sumo = [12,22,32, 120, 320] 
+interscsimulator = [1.25,2.5, 3.8,5.3,7]
+teste= [1,2,3,4,5]
+
+
+df = pd.DataFrame(list(zip(sumo, interscsimulator, teste)),  
+                columns =['sumo', 'interscsimulator', 'teste']) 
+fig, ax = plt.subplots()
+ax = df.plot.line(ax = ax, x = "teste", y = "sumo")
+df.plot.line(ax = ax, x = "teste", y = "interscsimulator")
+
+
+plt.show()
+plt.close()
